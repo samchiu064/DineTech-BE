@@ -1,16 +1,4 @@
-import { Document, Schema } from 'mongoose'
-
-interface IMenuExtras extends Document {
-  menuId: typeof Schema.Types.ObjectId
-  name: string
-  price: number
-}
-
-interface IMenuOptions extends Document {
-  menuId: typeof Schema.Types.ObjectId
-  name: string
-  type: string
-}
+import { Document } from 'mongoose'
 
 interface IMenu extends Document {
   name: string
@@ -18,8 +6,7 @@ interface IMenu extends Document {
   description: string
   image: string
   category: string
-  type: string
   stock: number
 }
 
-export { IMenuExtras, IMenuOptions, IMenu }
+export { IMenu }

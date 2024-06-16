@@ -1,10 +1,7 @@
-import { Document } from 'mongoose'
-
-interface IFeedbackOptions extends Document {
-  name: string
-}
+import { Document, Types } from 'mongoose'
 
 interface IFeedback extends Document {
+  guestId: Types.ObjectId
   service: number
   flow: number
   speed: number
@@ -13,6 +10,7 @@ interface IFeedback extends Document {
   sanitation: number
   impression: number
   comment: string
+  createdAt: string
 }
 
-export { IFeedback, IFeedbackOptions }
+export { IFeedback }

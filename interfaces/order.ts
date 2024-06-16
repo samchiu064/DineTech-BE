@@ -1,11 +1,19 @@
-import { ICartItem, ICart } from './cart'
+import { Document, Types } from 'mongoose'
 
-interface IOrderItem extends ICartItem {
-  status: 'pending' | 'completed' | 'cancelled'
+interface IOrderItem extends Document {
+  menuId: {
+    type: Types.ObjectId
+    ref: 'Menu'
+  }
+  quantity: number
+  options: string[]
 }
 
-interface IOrder extends ICart {
+interface IOrder extends Document {
+  guestId: Types.ObjectId
+  createdAt: string
   items: IOrderItem[]
+  total: number
 }
 
 export { IOrderItem, IOrder }
