@@ -1,20 +1,15 @@
-import { Request, Response, NextFunction } from 'express'
-import { handleSuccess, createAppError } from '../services'
+import { Request, Response } from 'express'
+import { handleSuccess } from '../services'
 import Guest from '../models/Guest'
 
 export const getGuests = async (req: Request, res: Response) => {
-  let guests
-  if (req.query.id) {
-    guests = await Guest.findById(req.query.id)
-  } else {
-    guests = await Guest.find()
-  }
+  const guests = await Guest.find()
   handleSuccess(req, res, guests)
 }
 
 export const createGuest = async (req: Request, res: Response) => {
-  const { table, guest } = req.body
-  const newGuest = new Guest({ table, guest })
+  const { table, people } = req.body
+  const newGuest = new Guest({ table, people })
   await newGuest.save()
   handleSuccess(
     req,
@@ -28,10 +23,10 @@ export const createGuest = async (req: Request, res: Response) => {
 
 export const updateGuest = async (req: Request, res: Response) => {
   const { id } = req.params
-  const { table, guest } = req.body
+  const { table, people } = req.body
   const updatedGuest = await Guest.findByIdAndUpdate(
     id,
-    { table, guest },
+    { table, people },
     {
       new: true,
     }

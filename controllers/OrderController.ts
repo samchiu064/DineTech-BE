@@ -1,15 +1,25 @@
 import { Request, Response } from 'express'
-import { handleSuccess, createAppError } from '../services'
+import { handleSuccess } from '../services'
 import Order from '../models/Order'
 
 export const getOrders = async (req: Request, res: Response) => {
-  let orders
-  if (req.query.id) {
-    orders = await Order.findById(req.query.id).populate('menuId', 'name')
+  const { guestId } = req.query
+  if (guestId) {
+    const orders = await Order.find({ guestId: guestId }).populate(
+      'items.menuId',
+      'name price'
+    )
+    handleSuccess(req, res, orders)
   } else {
-    orders = await Order.find().populate('menuId', 'name')
+    const orders = await Order.find().populate('items.menuId', 'name price')
+    handleSuccess(req, res, orders)
   }
-  handleSuccess(req, res, orders)
+}
+
+export const getOrderById = async (req: Request, res: Response) => {
+  const { id } = req.params
+  const order = await Order.findById(id).populate('items.menuId', 'name price')
+  handleSuccess(req, res, order)
 }
 
 export const createOrder = async (req: Request, res: Response) => {

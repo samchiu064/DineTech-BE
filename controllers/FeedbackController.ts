@@ -1,23 +1,15 @@
-import { Request, Response, NextFunction } from 'express'
-import { handleSuccess, createAppError } from '../services'
+import { Request, Response } from 'express'
+import { handleSuccess } from '../services'
 import Feedback from '../models/Feedback'
 
-export const getFeedbacks = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  let feedbacks
-  if (req.query.id) {
-    feedbacks = await Feedback.findById(req.query.id)
-  } else {
-    feedbacks = await Feedback.find()
-  }
+export const getFeedbacks = async (req: Request, res: Response) => {
+  const feedbacks = await Feedback.find()
   handleSuccess(req, res, feedbacks)
 }
 
 export const createFeedback = async (req: Request, res: Response) => {
-  const { feedback } = req.body
+  console.log(req.body)
+  const feedback = req.body
   const newFeedback = new Feedback(feedback)
   await newFeedback.save()
   handleSuccess(req, res, newFeedback, 201)
@@ -25,7 +17,7 @@ export const createFeedback = async (req: Request, res: Response) => {
 
 export const updateFeedback = async (req: Request, res: Response) => {
   const { id } = req.params
-  const { feedback } = req.body
+  const feedback = req.body
   const updatedFeedback = await Feedback.findByIdAndUpdate(id, feedback, {
     new: true,
   })

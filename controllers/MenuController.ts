@@ -1,15 +1,11 @@
-import { Request, Response, NextFunction } from 'express'
-import { handleSuccess, createAppError } from '../services'
+import { Request, Response } from 'express'
+import { handleSuccess } from '../services'
 import Menu from '../models/Menu'
 
-export const getMenus = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const getMenus = async (req: Request, res: Response) => {
   let menus
-  if (req.params.category) {
-    menus = await Menu.find({ category: req.params.category })
+  if (req.query.category) {
+    menus = await Menu.find({ category: req.query.category })
   } else {
     menus = await Menu.find()
   }
