@@ -7,7 +7,6 @@ const handleSuccess = (
   httpStatus = 200
 ) => {
   res.status(httpStatus).send({
-    status: 'success',
     data,
   })
 }
