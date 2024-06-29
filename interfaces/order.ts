@@ -6,7 +6,9 @@ interface IOrderItem extends Document {
     ref: 'Menu'
   }
   quantity: number
-  options: string[]
+  flavour: string
+  toppings: { name: string, price: number}[]
+  total_price: number
 }
 
 interface IOrder extends Document {
