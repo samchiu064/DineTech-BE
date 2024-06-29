@@ -10,10 +10,10 @@ import { handleRouteError } from '../services'
 
 const router = Router()
 
-router.get('/:id?', handleRouteError(getGuests))
-router.post('/', handleRouteError(createGuest))
+router.get('/', handleRouteError(getGuests))
+router.post('', handleRouteError(createGuest))
 router.put('/:id', handleRouteError(updateGuest))
 router.delete('/:id', handleRouteError(deleteGuest))
-router.delete('/', handleRouteError(deleteAllGuests))
+router.delete('', handleRouteError(deleteAllGuests))
 
 export default router
