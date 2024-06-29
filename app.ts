@@ -2,14 +2,15 @@ import express, { Express, Request, Response, NextFunction } from 'express'
 import path from 'path'
 import cors from 'cors'
 import './connections'
-import feedbackRouter from './routes/feedback'
-import guestRouter from './routes/guest'
-import menuRouter from './routes/menu'
-import orderRouter from './routes/order'
+import feedbackRouter from './routes/feedbacks'
+import guestRouter from './routes/guests'
+import menuRouter from './routes/menus'
+import toppingRouter from './routes/toppings'
+import orderRouter from './routes/orders'
 import { handleErrorDev, handleErrorProd } from './services'
 import { AppError } from './utils'
 
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 const app: Express = express()
 
 app.use(express.json())
@@ -17,18 +18,18 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
 
-app.use('/feedback', feedbackRouter)
-app.use('/guest', guestRouter)
-app.use('/menu', menuRouter)
-app.use('/order', orderRouter)
+app.use('/feedbacks', feedbackRouter)
+app.use('/guests', guestRouter)
+app.use('/menus', menuRouter)
+app.use('/toppings', toppingRouter)
+app.use('/orders', orderRouter)
 
 // Express Application-level middleware
 app.use((err: AppError, req: Request, res: Response, next: NextFunction) => {
   if (process.env.NODE_ENV === 'dev') return handleErrorDev(res, err)
   if (process.env.NODE_ENV === 'prod') return handleErrorProd(res, err)
   res.status(err.statusCode || res.statusCode || 500).send({
-    status: 'error',
-    message: err.message,
+    errors: err.message,
   })
 })
 
