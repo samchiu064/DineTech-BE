@@ -26,10 +26,6 @@ const menuSchema = new Schema<IMenu>(
         'rice',
         'beverage',
         'dessert',
-        'topping',
-        'spiciness',
-        'ice',
-        'sugar',
       ],
     },
     stock: {

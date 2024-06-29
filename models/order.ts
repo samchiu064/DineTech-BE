@@ -14,6 +14,25 @@ const orderItemSchema = new Schema<IOrderItem>(
       required: true,
       min: [1, 'Quantity can not be less then 1.'],
     },
+    flavour: {
+      type: String,
+    },
+    toppings: [
+      {
+        name: {
+          type: String,
+          required: true,
+        },
+        price: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
+    total_price: {
+      type: Number,
+      required: true,
+    }
   },
   { versionKey: false }
 )
