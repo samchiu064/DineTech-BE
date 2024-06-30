@@ -1,4 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from 'express'
+import serverless from 'serverless-http'
 import path from 'path'
 import cors from 'cors'
 import './connections'
@@ -10,7 +11,6 @@ import orderRouter from './routes/orders'
 import { handleErrorDev, handleErrorProd } from './services'
 import { AppError } from './utils'
 
-const port = process.env.PORT || 3000
 const app: Express = express()
 
 app.use(express.json())
@@ -45,8 +45,5 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled rejection: ', promise, 'Reason: ', reason)
 })
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
-})
-
-export default app
+// AWS Lambda
+export const handler = serverless(app)
