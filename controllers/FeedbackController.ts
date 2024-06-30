@@ -8,7 +8,6 @@ export const getFeedbacks = async (req: Request, res: Response) => {
 }
 
 export const createFeedback = async (req: Request, res: Response) => {
-  console.log(req.body)
   const feedback = req.body
   const newFeedback = new Feedback(feedback)
   await newFeedback.save()
