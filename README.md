@@ -7,7 +7,7 @@
 - 資料庫：MongoDB, Mongoose ODM
 - 部屬環境：AWS Lambda
 
-關鍵字：Node.js, Express, MongoDB, Mongoose, MVC, AWS Lambda, Serverless, CICD
+關鍵字：Node.js, Express, MongoDB, Mongoose, MVC, AWS Lambda, Serverless, CICD, 金流串接
 
 ## 目錄
 
@@ -26,35 +26,37 @@
 
 ## 路由設計
 
-|API 名稱|路由群組|方法|路由|
-|-|-|-|-|
-|取得顧客|顧客|GET|/guests/|
-|新增顧客|顧客|POST|/guests|
-|修改顧客|顧客|PUT|/guests/:id|
-|刪除單筆顧客|顧客|DELETE|/guests/:id|
-|刪除所有顧客|顧客|DELETE|/guests|
-|取得菜單|菜單|GET|/menus/|
-|取得單筆菜單|菜單|GET|/menus/:id|
-|新增菜單|菜單|POST|/menus|
-|修改菜單|菜單|PUT|/menus/:id|
-|刪除單筆菜單|菜單|DELETE|/menus/:id|
-|刪除所有菜單|菜單|DELETE|/menus|
-|取得配料|配料|GET|/toppings/|
-|新增配料|配料|POST|/toppings|
-|修改配料|配料|PUT|/toppings/:id|
-|刪除單筆配料|配料|DELETE|/toppings/:id|
-|刪除所有配料|配料|DELETE|/toppings|
-|取得訂單|訂單|GET|/orders/|
-|取得單筆訂單|訂單|GET|/orders/:id|
-|新增訂單|訂單|POST|/orders|
-|修改訂單|訂單|PUT|/orders/:id|
-|刪除單筆訂單|訂單|DELETE|/orders/:id|
-|刪除所有訂單|訂單|DELETE|/orders|
-|取得回饋|回饋|GET|/feedbacks/|
-|新增回饋|回饋|POST|/feedbacks|
-|修改回饋|回饋|PUT|/feedbacks/:id|
-|刪除單筆回饋|回饋|DELETE|/feedbacks/:id|
-|刪除所有回饋|回饋|DELETE|/feedbacks|
+| API 名稱     | 路由群組 | 方法   | 路由             |
+| ------------ | -------- | ------ | ---------------- |
+| 取得顧客     | 顧客     | GET    | /guests/         |
+| 新增顧客     | 顧客     | POST   | /guests          |
+| 修改顧客     | 顧客     | PUT    | /guests/:id      |
+| 刪除單筆顧客 | 顧客     | DELETE | /guests/:id      |
+| 刪除所有顧客 | 顧客     | DELETE | /guests          |
+| 取得菜單     | 菜單     | GET    | /menus/          |
+| 取得單筆菜單 | 菜單     | GET    | /menus/:id       |
+| 新增菜單     | 菜單     | POST   | /menus           |
+| 修改菜單     | 菜單     | PUT    | /menus/:id       |
+| 刪除單筆菜單 | 菜單     | DELETE | /menus/:id       |
+| 刪除所有菜單 | 菜單     | DELETE | /menus           |
+| 取得配料     | 配料     | GET    | /toppings/       |
+| 新增配料     | 配料     | POST   | /toppings        |
+| 修改配料     | 配料     | PUT    | /toppings/:id    |
+| 刪除單筆配料 | 配料     | DELETE | /toppings/:id    |
+| 刪除所有配料 | 配料     | DELETE | /toppings        |
+| 取得訂單     | 訂單     | GET    | /orders/         |
+| 取得單筆訂單 | 訂單     | GET    | /orders/:id      |
+| 新增訂單     | 訂單     | POST   | /orders          |
+| 修改訂單     | 訂單     | PUT    | /orders/:id      |
+| 刪除單筆訂單 | 訂單     | DELETE | /orders/:id      |
+| 刪除所有訂單 | 訂單     | DELETE | /orders          |
+| 取得回饋     | 回饋     | GET    | /feedbacks/      |
+| 新增回饋     | 回饋     | POST   | /feedbacks       |
+| 修改回饋     | 回饋     | PUT    | /feedbacks/:id   |
+| 刪除單筆回饋 | 回饋     | DELETE | /feedbacks/:id   |
+| 刪除所有回饋 | 回饋     | DELETE | /feedbacks       |
+| 產生交易資訊 | 結帳     | POST   | /checkout        |
+| 通知交易資訊 | 結帳     | POST   | /checkout/notify |
 
 ---
 
@@ -104,7 +106,7 @@
 - [dotenv](https://github.com/motdotla/dotenv)
 - [moment-timezone](https://momentjs.com/timezone/)
 - [cross-env](https://github.com/kentcdodds/cross-env)
-- [nodemon](https://nodemon.io/)
+- [tsx](https://github.com/privatenumber/tsx)
 - [ts-node](https://github.com/TypeStrong/ts-node)
 - [Prettier](https://prettier.io/)
 - [Eslint](https://eslint.org/)
