@@ -2,17 +2,21 @@ import express, { Express, Request, Response, NextFunction } from 'express'
 import serverless from 'serverless-http'
 import path from 'path'
 import cors from 'cors'
-import './connections'
-import feedbackRouter from './routes/feedbacks'
-import guestRouter from './routes/guests'
-import menuRouter from './routes/menus'
-import toppingRouter from './routes/toppings'
-import orderRouter from './routes/orders'
-import { handleErrorDev, handleErrorProd } from './services'
-import { AppError } from './utils'
+import { fileURLToPath } from 'url'
+import { connectDB } from './connections/index.js'
+import feedbackRouter from './routes/feedbacks.js'
+import guestRouter from './routes/guests.js'
+import menuRouter from './routes/menus.js'
+import toppingRouter from './routes/toppings.js'
+import orderRouter from './routes/orders.js'
+import checkoutRouter from './routes/checkout.js'
+import { handleErrorDev, handleErrorProd } from './services/index.js'
+import { AppError } from './utils/index.js'
 
 const port = process.env.PORT || 3000
 const app: Express = express()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -24,6 +28,7 @@ app.use('/guests', guestRouter)
 app.use('/menus', menuRouter)
 app.use('/toppings', toppingRouter)
 app.use('/orders', orderRouter)
+app.use('/checkout', checkoutRouter)
 
 // Express Application-level middleware
 app.use((err: AppError, req: Request, res: Response, next: NextFunction) => {
@@ -51,6 +56,10 @@ if (process.env.NODE_ENV === 'dev') {
     console.log(`Server is running on port ${port}`)
   })
 }
+
+connectDB()
+  .then(() => console.log('connect success'))
+  .catch((err) => console.log(err))
 
 export default app
 

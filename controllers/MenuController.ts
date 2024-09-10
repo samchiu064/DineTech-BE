@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { handleSuccess } from '../services'
-import Menu from '../models/Menu'
+import { handleSuccess } from '../services/index.js'
+import Menu from '../models/Menu.js'
 
 export const getMenus = async (req: Request, res: Response) => {
   let menus

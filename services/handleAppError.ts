@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { NextFunction } from 'express'
-import { AppError } from '../utils'
+import { AppError } from '../utils/index.js'
 
 const createAppError = (
   httpStatus: number,

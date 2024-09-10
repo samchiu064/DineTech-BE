@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { handleSuccess } from '../services'
-import Guest from '../models/Guest'
+import { handleSuccess } from '../services/index.js'
+import Guest from '../models/Guest.js'
 
 export const getGuests = async (req: Request, res: Response) => {
   const guests = await Guest.find()

@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { IGuest } from '../interfaces'
-import { getDateTime } from '../utils'
+import { IGuest } from '../interfaces/index.js'
+import { getDateTime } from '../utils/index.js'
 
 const guestSchema = new Schema<IGuest>(
   {

@@ -6,8 +6,8 @@ import {
   updateMenu,
   deleteMenu,
   deleteAllMenus,
-} from '../controllers/MenuController'
-import { handleRouteError } from '../services'
+} from '../controllers/MenuController.js'
+import { handleRouteError } from '../services/index.js'
 
 const router = Router()
 

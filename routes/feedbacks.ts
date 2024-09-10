@@ -5,8 +5,8 @@ import {
   updateFeedback,
   deleteFeedback,
   deleteAllFeedbacks,
-} from '../controllers/FeedbackController'
-import { handleRouteError } from '../services'
+} from '../controllers/FeedbackController.js'
+import { handleRouteError } from '../services/index.js'
 
 const router = Router()
 

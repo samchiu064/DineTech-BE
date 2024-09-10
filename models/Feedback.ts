@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { IFeedback } from '../interfaces'
-import { getDateTime } from '../utils'
+import { IFeedback } from '../interfaces/index.js'
+import { getDateTime } from '../utils/index.js'
 
 const feedbackSchema = new Schema<IFeedback>(
   {

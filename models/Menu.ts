@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-import { IMenu } from '../interfaces'
+import { IMenu } from '../interfaces/index.js'
 
 const menuSchema = new Schema<IMenu>(
   {
@@ -21,12 +21,7 @@ const menuSchema = new Schema<IMenu>(
     category: {
       type: String,
       required: true,
-      enum: [
-        'pasta',
-        'rice',
-        'beverage',
-        'dessert',
-      ],
+      enum: ['pasta', 'rice', 'beverage', 'dessert'],
     },
     stock: {
       type: Number,

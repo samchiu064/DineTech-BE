@@ -6,8 +6,8 @@ import {
   updateOrder,
   deleteOrder,
   deleteAllOrders,
-} from '../controllers/OrderController'
-import { handleRouteError } from '../services'
+} from '../controllers/OrderController.js'
+import { handleRouteError } from '../services/index.js'
 
 const router = Router()
 

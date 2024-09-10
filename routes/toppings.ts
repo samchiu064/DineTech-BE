@@ -5,8 +5,8 @@ import {
   updateTopping,
   deleteTopping,
   deleteAllToppings,
-} from '../controllers/ToppingController'
-import { handleRouteError } from '../services'
+} from '../controllers/ToppingController.js'
+import { handleRouteError } from '../services/index.js'
 
 const router = Router()
 

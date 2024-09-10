@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { IOrderItem, IOrder } from '../interfaces'
-import { getDateTime } from '../utils'
+import { IOrderItem, IOrder } from '../interfaces/index.js'
+import { getDateTime } from '../utils/index.js'
 
 const orderItemSchema = new Schema<IOrderItem>(
   {
@@ -32,7 +32,7 @@ const orderItemSchema = new Schema<IOrderItem>(
     total_price: {
       type: Number,
       required: true,
-    }
+    },
   },
   { versionKey: false }
 )

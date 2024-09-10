@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
-import { handleSuccess, createAppError } from '../services'
-import Topping from '../models/Topping'
+import { handleSuccess, createAppError } from '../services/index.js'
+import Topping from '../models/Topping.js'
 
 export const getToppings = async (
   req: Request,

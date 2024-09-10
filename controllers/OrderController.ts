@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { handleSuccess } from '../services'
-import Order from '../models/Order'
+import { handleSuccess } from '../services/index.js'
+import Order from '../models/Order.js'
 
 export const getOrders = async (req: Request, res: Response) => {
   const { guestId } = req.query

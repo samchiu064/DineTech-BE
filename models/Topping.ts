@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-import { ITopping } from '../interfaces/Topping'
+import { ITopping } from '../interfaces/Topping.js'
 
 const TopingSchema = new Schema(
   {

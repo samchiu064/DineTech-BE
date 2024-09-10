@@ -5,8 +5,8 @@ import {
   updateGuest,
   deleteGuest,
   deleteAllGuests,
-} from '../controllers/GuestController'
-import { handleRouteError } from '../services'
+} from '../controllers/GuestController.js'
+import { handleRouteError } from '../services/index.js'
 
 const router = Router()
 

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { handleSuccess } from '../services'
-import Feedback from '../models/Feedback'
+import { handleSuccess } from '../services/index.js'
+import Feedback from '../models/Feedback.js'
 
 export const getFeedbacks = async (req: Request, res: Response) => {
   const feedbacks = await Feedback.find()
