@@ -7,7 +7,7 @@
 - 資料庫：MongoDB, Mongoose ODM
 - 部屬環境：AWS Lambda
 
-關鍵字：Node.js, Express, MongoDB, Mongoose, MVC, AWS Lambda, Serverless, CICD, 金流串接
+關鍵字：Node.js, Express, MongoDB, Mongoose, AWS Lambda, AWS S3, Amazon CloudFront, Serverless, CICD, 金流串接
 
 ## 目錄
 
@@ -129,4 +129,4 @@ Sam Chiu [(LinkedIn)](https://www.linkedin.com/in/sam-chiu-4b7557137/)
 
 ## License
 
-Copyright © 2024 Sam Chiu. All rights reserved.
+Copyright © 2026 Sam Chiu. All rights reserved.
